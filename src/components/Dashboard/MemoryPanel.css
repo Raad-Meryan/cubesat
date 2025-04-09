@@ -1,0 +1,21 @@
+.memory-gauge-panel {
+	background-color: #1e1e1e;
+	padding: 20px;
+	border-radius: 6px;
+	text-align: center;
+	color: white;
+	box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  }
+  
+  .memory-gauge-panel .title {
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 10px;
+  }
+  
+  .memory-gauge-panel .total {
+	margin-top: 10px;
+	font-size: 14px;
+	color: #ccc;
+  }
+  

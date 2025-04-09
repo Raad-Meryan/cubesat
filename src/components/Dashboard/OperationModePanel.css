@@ -1,0 +1,20 @@
+.operation-mode-panel {
+	background-color: #121212;
+	padding: 20px;
+	border-radius: 4px;
+	color: white;
+	text-align: center;
+
+  }
+  
+  .operation-mode-panel .title {
+	font-weight: bold;
+	margin-bottom: 10px;
+	font-size: 16px;
+  }
+  
+  .operation-mode-panel .mode {
+	font-size: 32px;
+	font-weight: bold;
+  }
+  
