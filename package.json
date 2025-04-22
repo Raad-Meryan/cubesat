@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@react-three/fiber": "^9.1.2",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
@@ -10,6 +11,7 @@
     "chart.js": "^4.4.8",
     "chartjs-adapter-date-fns": "^3.0.0",
     "date-fns": "^4.1.0",
+    "mqtt": "^5.11.0",
     "react": "^19.1.0",
     "react-chartjs-2": "^5.3.0",
     "react-circular-progressbar": "^2.2.0",
@@ -19,6 +21,7 @@
     "react-resizable": "^3.0.5",
     "react-router-dom": "^7.5.0",
     "react-scripts": "5.0.1",
+    "three": "^0.175.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
