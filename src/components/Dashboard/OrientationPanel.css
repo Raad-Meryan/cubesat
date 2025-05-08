@@ -1,0 +1,19 @@
+.orientation-panel {
+	background-color: #1e1e1e;
+	color: white;
+	padding: 15px;
+	border-radius: 6px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+	font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .orientation-panel h4 {
+	color: #99ffcc;
+	margin-bottom: 10px;
+  }
+  
+  .orientation-panel p {
+	margin: 4px 0;
+	font-size: 14px;
+  }
+  
