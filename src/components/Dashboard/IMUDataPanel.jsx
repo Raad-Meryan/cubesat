@@ -1,20 +1,29 @@
-  import React from 'react';
-  import './IMUDataPanel.css';
+/*  IMUDataPanel.jsx  */
+import React from "react";
+import "./IMUDataPanel.css";
 
-  function IMUDataPanel({ gyro = [0, 0, 0], accel = [0, 0, 0], mag = [0, 0, 0] }) {
-    const formatVector = ([x, y, z]) =>
-      `X: ${x.toFixed(2)} | Y: ${y.toFixed(2)} | Z: ${z.toFixed(2)}`;
+/* ---------- helper: use “--” on missing items ----------------- */
+const fmt = n => (typeof n === "number" ? n.toFixed(2) : "--");
 
-    return (
-      <div className="imu-panel">
-        <h4>Accelerometer</h4>
-        <p>{formatVector(accel)}</p>
-        <h4>Gyroscope</h4>
-        <p>{formatVector(gyro)}</p>
-        <h4>Magnetometer</h4>
-        <p>{formatVector(mag)}</p>
-      </div>
-    );
-  }
+function formatVector(v) {
+  /* v may be  null / undefined / shorter than 3 */
+  if (!Array.isArray(v)) return "--, --, --";
+  const [x, y, z] = v;
+  return `${fmt(x)}, ${fmt(y)}, ${fmt(z)}`;
+}
 
-  export default IMUDataPanel;
+export default function IMUDataPanel({
+  gyro = [],            // default empty arrays keep the code safe
+  accel = [],
+  mag = []
+}) {
+  return (
+    <div className="imu-panel">
+      <h4>IMU Sensor Data</h4>
+
+      <p><span className="imu-label">Gyroscope:</span> {formatVector(gyro)} °/s</p>
+      <p><span className="imu-label">Accelerometer:</span> {formatVector(accel)} m/s²</p>
+      <p><span className="imu-label">Magnetometer:</span> {formatVector(mag)} µT</p>
+    </div>
+  );
+}

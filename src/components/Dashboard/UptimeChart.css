@@ -1,6 +1,9 @@
-.uptime-panel {
+.uptime-panel{
   background:#1e1e1e;
-  padding:20px;
   border-radius:5px;
-  height:250px;
+  margin-left: 1%;
+  margin-right: 1%;
+  padding:20px;            /* inner breathing-room */
+  height:270px;            /* keeps the panel height you want */
+  
 }

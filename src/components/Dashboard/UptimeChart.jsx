@@ -13,16 +13,15 @@ ChartJS.register(
   Tooltip, Legend, TimeScale
 );
 
-/* --- component ---------------------------------------------------------- */
 export default function UptimeChart({ cdhs = 0 }) {
-  const [pts, setPts] = useState([]);        // {t, cdhs}
+  const [pts, setPts] = useState([]);           // {t, cdhs}
 
-  /* keep a rolling 5-min window of points */
+  /* keep a rolling 5-minute window */
   useEffect(() => {
     setPts(prev => [
       ...prev,
       { t: new Date(), cdhs }
-    ].slice(-300));                          // 300 s = 5 min
+    ].slice(-300));
   }, [cdhs]);
 
   const labels   = pts.map(p => p.t);
@@ -31,16 +30,15 @@ export default function UptimeChart({ cdhs = 0 }) {
   const chartData = {
     labels,
     datasets: [
-      {                       // real curve
+      {
         label: "CDHS Uptime",
-        data: cdhsData,
+        data:  cdhsData,
         borderColor: "#00aaff",
         backgroundColor: "#00aaff"
       },
-      /* four flat-zero grey lines so slots stay visible */
       ...["EPS","ADCS","COMM","Payload"].map(name => ({
         label: `${name} Uptime`,
-        data: Array(labels.length).fill(0),
+        data:  Array(labels.length).fill(0),
         borderColor: "#777",
         backgroundColor: "#777",
         borderDash: [4,4],
@@ -50,22 +48,26 @@ export default function UptimeChart({ cdhs = 0 }) {
   };
 
   const options = {
-    responsive:true,
-    plugins:{
-      legend:{ position:"right", labels:{ color:"#fff" } },
-      tooltip:{ mode:"index", intersect:false },
-      title:{ display:true, text:"Subsystem Uptime in Hours", color:"#fff" }
-    },
-    interaction:{ mode:"nearest", axis:"x", intersect:false },
-    scales:{
-      x:{
-        type:"time",
-        time:{ unit:"minute", displayFormats:{ minute:"HH:mm" } },
-        ticks:{ color:"#fff" }, grid:{ color:"#333" }
+    maintainAspectRatio: false,      // let canvas fill the panel
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "bottom",          // <── moved from "right" to "bottom"
+        labels: { color: "#fff" }
       },
-      y:{
-        title:{ display:true, text:"Hours", color:"#fff" },
-        ticks:{ color:"#fff" }, grid:{ color:"#333" }
+      tooltip: { mode: "index", intersect: false },
+      title:   { display: true, text: "Subsystem Uptime in Hours", color: "#fff" }
+    },
+    interaction: { mode: "nearest", axis: "x", intersect: false },
+    scales: {
+      x: {
+        type: "time",
+        time: { unit: "minute", displayFormats: { minute: "HH:mm" } },
+        ticks: { color: "#fff" }, grid: { color: "#333" }
+      },
+      y: {
+        title: { display: true, text: "Hours", color: "#fff" },
+        ticks: { color: "#fff" }, grid: { color: "#333" }
       }
     }
   };

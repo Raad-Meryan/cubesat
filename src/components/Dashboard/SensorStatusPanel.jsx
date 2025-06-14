@@ -5,7 +5,7 @@ const dummySensorData = {
   OBC: true,
   TEMP: true,
   IMU: true,
-  INA: true,
+  INA: false,
   'Power Gen': false,
   'Photo Diode': false,
   'Cell TEMP': false,

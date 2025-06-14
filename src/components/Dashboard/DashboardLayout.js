@@ -23,7 +23,6 @@ import ThermalPanel from './ThermalPanel';
 import ThermalHeatmapPanel from './ThermalHeatmapPanel';
 import ThermalGraphPanel from './ThermalGraphPanel';
 import SolarPowerGraph from './SolarPowerGraph';
-import TemperatureGraphPanel from "./TemperatureGraphPanel";
 import TemperatureStatsPanel from "./TemperatureStatsPanel";
 import SubsystemTempGraph from './SubsystemTempGraph';
 import BeaconPulse from "./BeaconPulse";
@@ -37,40 +36,38 @@ import 'react-resizable/css/styles.css';
 const ResponsiveGridLayout = WidthProvider(Responsive);
 function DashboardLayout() {
   const baseLayout = [
-  { i: 'logo',            x: 0,  y: 0,  w: 2,  h: 3 },
-  { i: 'time',            x: 2,  y: 0,  w: 2,  h: 3 },
-  { i: 'altitude',        x: 4,  y: 0,  w: 2,  h: 3 },
-  { i: 'opMode',          x: 6,  y: 0,  w: 2,  h: 3 },
-
+  { i: 'logo',            x: 0,  y: 0,  w: 2,  h: 4 },
+  { i: 'time',            x: 2,  y: 0,  w: 2,  h: 4 },
+  { i: 'altitude',        x: 4,  y: 0,  w: 2,  h: 4 },
+  { i: 'opMode',          x: 6,  y: 0,  w: 2,  h: 4 },
   { i: 'sensorStatus',    x: 8,  y: 0,  w: 2,  h: 7 },
+  { i: 'orientation3d',   x:10,  y:0, w: 2,  h: 4 },
 
-  { i: 'environment',     x:10,  y: 0,  w: 2,  h: 3 },
-  { i: 'systemStatus',    x:10,  y: 3,  w: 2,  h: 4 },
-  { i: 'orientation',     x:10,  y: 6,  w: 2,  h: 3 },
-  { i: 'orientation3d',   x:10,  y:10, w: 2,  h: 4 },
+  { i: 'thermalHeatmap',  x: 0,  y:4, w: 3,  h: 6 },
+  { i: 'thermalGraph',    x:3,  y:4, w: 5,  h: 6 },
+  { i: 'orientation',     x:10,  y: 4,  w: 2,  h: 3 },
+  { i: 'systemStatus',    x:8,  y: 7,  w: 2,  h: 4 },
+  { i: 'imu',             x: 10,  y: 7,  w: 2,  h: 4 },
 
-  { i: 'memory',          x: 0,  y: 3,  w: 3,  h: 6 },
-  { i: 'uptime',          x: 3,  y: 3,  w: 5,  h: 6 },
+  { i: 'uptime',          x: 0,  y: 10,  w: 6,  h: 6 },
+  { i: 'thermal',         x: 6,  y:10, w: 2,  h: 4 },
+  { i: "beacon",          x: 6, y: 14, w: 2, h: 2 },
+  { i: 'environment',     x:8,  y: 11,  w: 2,  h: 3 },
+  { i: "tempStats",       x: 10, y: 11, w: 2, h: 3 },
 
-  { i: 'imu',             x: 0,  y:10, w: 2,  h: 4 },
-  { i: 'batteryVoltage',  x: 2,  y:10, w: 3,  h: 4 },
-  { i: 'batteryCurrent',  x: 5,  y:10, w: 3,  h: 4 },
-  { i: 'socMeter',        x: 8,  y:10, w: 2,  h: 5 },
-  { i: 'gps',             x: 8,  y:12, w: 2,  h: 2 },
+  { i: "beaconGraph",     x: 0, y: 16, w: 8, h: 6 },
+  { i: 'subsysTemp',      x: 8, y: 16, w: 4, h: 6 },
+  
+  { i: 'lastSnapBtn',     x: 0,  y:22, w: 3,  h: 5 },
+  { i: 'galleryBtn',      x: 3,  y:22, w: 3,  h: 5 },
+  { i: 'scheduleBtn',     x: 8, y: 22, w: 2, h: 3 },
+  { i: 'memory',          x: 6,  y: 22,  w: 2,  h: 5 },
+  { i: 'gps',             x: 11,  y:22, w: 2,  h: 3 },
 
-  { i: 'solarPower',      x: 0,  y:14, w: 4,  h: 4 },
-  { i: 'thermal',         x: 4,  y:14, w: 2,  h: 4 },
-  { i: 'thermalHeatmap',  x: 0,  y:22, w: 3,  h: 5 },
-  { i: 'thermalGraph',    x:3,  y:22, w: 9,  h: 5 },
-
-  { i: 'lastSnapBtn',     x: 0,  y:21, w: 3,  h: 5 },
-  { i: 'galleryBtn',      x: 3,  y:21, w: 3,  h: 5 },
-  { i: "tempGraph",       x: 6, y: 33, w: 6, h: 4 },
-  { i: "tempStats",       x: 8, y: 17, w: 2, h: 3 },
-  { i: 'subsysTemp', x: 6, y: 21, w: 6, h: 5 }, 
-  { i: "beacon", x: 6, y: 14, w: 2, h: 4 },
-  { i: "beaconGraph", x: 0, y: 26, w: 12, h: 5 },
-  { i: 'scheduleBtn',  x: 10, y: 17, w: 2, h: 3 }
+  { i: 'socMeter',        x: 0,  y:27, w: 2,  h: 6 },
+  { i: 'batteryVoltage',  x: 2,  y:27, w: 5,  h: 6 },
+  { i: 'batteryCurrent',  x: 7,  y:27, w: 5,  h: 6 },
+  { i: 'solarPower',      x: 8,  y:23, w: 4,  h: 4 }
 ];
 
 const layouts = {
@@ -108,7 +105,7 @@ useEffect(() => {
         }
       })
       .catch(console.error);
-  }, 250);                                      // one sample = one second
+  }, 250);                                      // one sample = 250ms
   return () => clearInterval(h);
 }, []);
 
@@ -245,15 +242,6 @@ useEffect(() => {
       <div key="solarPower">
         <Panel title="Solar Panel Power">
           <SolarPowerGraph />
-        </Panel>
-      </div>
-
-      <div key="tempGraph">
-        <Panel title="CubeSat Temperature">
-          <TemperatureGraphPanel
-            minTemp={sensorData.temperature?.min}
-            maxTemp={sensorData.temperature?.max}
-          />
         </Panel>
       </div>
 

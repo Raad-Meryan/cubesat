@@ -1,21 +1,10 @@
-.imu-panel {
-	background-color: #1e1e1e;
-	color: white;
-	padding: 15px;
-	border-radius: 6px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-	text-align: left;
-	font-family: 'Segoe UI', sans-serif;
-  }
-  
-  .imu-panel h4 {
-	margin: 10px 0 5px;
-	font-size: 16px;
-	color: #66ccff;
-  }
-  
-  .imu-panel p {
-	margin: 0 0 10px;
-	font-size: 14px;
-  }
-  
+/* IMUDataPanel.css */
+.imu-panel{
+  background:#1e1e1e;
+  color:#fff;
+  padding:15px;
+  border-radius:6px;
+  font-family:Segoe UI, sans-serif;
+}
+.imu-panel h4{ color:#99ffcc; margin-bottom:10px; }
+.imu-label{ color:#ccc; display:inline-block; width:110px; }
