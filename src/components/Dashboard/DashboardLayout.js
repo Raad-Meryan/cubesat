@@ -55,8 +55,8 @@ function DashboardLayout() {
   { i: 'imu',             x: 0,  y:10, w: 2,  h: 4 },
   { i: 'batteryVoltage',  x: 2,  y:10, w: 3,  h: 4 },
   { i: 'batteryCurrent',  x: 5,  y:10, w: 3,  h: 4 },
-  { i: 'socMeter',        x: 8,  y:10, w: 2,  h: 4 },
-  { i: 'gps',             x: 8,  y:12, w: 2,  h: 3 },
+  { i: 'socMeter',        x: 8,  y:10, w: 2,  h: 5 },
+  { i: 'gps',             x: 8,  y:12, w: 2,  h: 2 },
 
   { i: 'solarPower',      x: 0,  y:14, w: 4,  h: 4 },
   { i: 'thermal',         x: 4,  y:14, w: 2,  h: 4 },
@@ -177,7 +177,7 @@ useEffect(() => {
 
         <div key="socMeter">
           <Panel title="State of Charge">
-            <StateOfChargeMeter soc={76} />
+            <StateOfChargeMeter soc={0} />
           </Panel>
         </div>
 

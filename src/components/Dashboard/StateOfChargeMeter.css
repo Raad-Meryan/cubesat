@@ -1,0 +1,27 @@
+/* StateOfChargeMeter.css  ──────────────────────────────────── */
+.soc-wrapper {
+  /* the cell from React-Grid-Layout stretches;
+     we just add some internal air-space */
+  padding: 12px 6px;            /* top-bottom 12px, sides 6px */
+  height: 90%;
+  box-sizing: border-box;
+
+  /* centre the chart + caption */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* make the gauge as large as the panel allows without touching the edges */
+.soc-wrapper .CircularProgressbar {
+  width: 92%;                   /* tweak to taste */
+}
+
+/* caption underneath (if you keep it) */
+.soc-caption {
+  margin-top: 12px;
+  color: #fff;
+  font-size: 0.9rem;
+  text-align: center;
+}
