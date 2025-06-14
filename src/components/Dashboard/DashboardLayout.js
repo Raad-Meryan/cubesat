@@ -108,7 +108,7 @@ useEffect(() => {
         }
       })
       .catch(console.error);
-  }, 1000);                                      // one sample = one second
+  }, 250);                                      // one sample = one second
   return () => clearInterval(h);
 }, []);
 
