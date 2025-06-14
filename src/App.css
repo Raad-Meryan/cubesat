@@ -1,4 +1,4 @@
-.dashboard {
+/* .dashboard {
   display: grid;
   grid-template-columns: 300px 1fr;
   gap: 20px;
@@ -38,3 +38,18 @@
   gap: 20px;
 }
 
+.grid-wrapper { width: 100%; }
+ */
+
+
+ /* DELETE the two lines that force 300 px, or rename the class */
+.dashboard {             /* keep other stuff if you like */
+  /* display: grid;            ✗  remove */
+  /* grid-template-columns:300px 1fr; ✗  remove */
+  background:#010101;
+  min-height:100vh;
+  padding:20px;
+}
+
+/* grid-wrapper already stretches full-width */
+.grid-wrapper { width:100%; }

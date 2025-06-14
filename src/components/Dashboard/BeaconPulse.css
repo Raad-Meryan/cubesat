@@ -1,0 +1,5 @@
+.pulse-wrapper { display:flex; align-items:center; gap:8px; }
+.pulse-dot     { width:16px; height:16px; border-radius:50%; background:#555; }
+.pulse-dot.on  { background:#00ff00; }  /* flash */
+.pulse-dot.lost{ background:#ff3333; }  /* >2 s silence */
+.pulse-label   { font-size:14px; color:#fff; }

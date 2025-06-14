@@ -1,13 +1,18 @@
-import React from 'react';
 import './SensorStatusPanel.css';
 
 const dummySensorData = {
   GPS: true,
   OBC: true,
-  IMU: false,
-  Magnetorquer: true,
-  'Earth Sensor': true,
-  'Main Camera': false
+  TEMP: true,
+  IMU: true,
+  INA: true,
+  'Power Gen': false,
+  'Photo Diode': false,
+  'Cell TEMP': false,
+  MTQ: false,
+  'On-Board Camera': true,
+  'Earth Sensor': true
+  
 };
 
 function SensorStatusPanel() {

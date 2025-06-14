@@ -1,0 +1,16 @@
+.heatmap-container {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  gap: 2px;
+  width: 100%;
+  aspect-ratio: 1;
+  max-width: 250px;
+  margin: 0 auto;
+}
+
+.heatmap-cell {
+  width: 100%;
+  padding-top: 100%;
+  border-radius: 2px;
+}

@@ -1,0 +1,17 @@
+.temp-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+  font-family: Segoe UI, sans-serif;
+  color: #fff;
+}
+
+.temp-block {
+  background: #1e1e1e;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.label { font-size: 13px; color: #ffcc66; }
+.value { font-size: 18px; font-weight: 600; }
