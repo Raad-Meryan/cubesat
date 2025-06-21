@@ -2,7 +2,7 @@
 import React from 'react';
 import './ThermalHeatmapPanel.css';
 
-function interpolateGrid(data, scale = 4) {
+export function interpolateGrid(data, scale = 4) {
   const w = 8, h = 8;
   const newW = w * scale;
   const newH = h * scale;
