@@ -45,11 +45,14 @@ export default function SnapshotGallery({ onClose }) {
           {filtered.length === 0 && <p>No images match.</p>}
         </div>
 
-        {active && (
-          <div className="sg-full" onClick={() => setActive(null)}>
-            <img src={`http://192.168.1.164:5000${active}`} alt="snapshot" />
-          </div>
-        )}
+          {active && (
+            <div className="sg-full" onClick={() => setActive(null)}>
+              <img
+                src={`${process.env.REACT_APP_API_URL}${active}`}
+                alt="snapshot"
+              />
+            </div>
+          )}
 
         <button className="sg-close" onClick={onClose}>Close</button>
       </div>
